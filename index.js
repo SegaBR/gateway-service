@@ -89,4 +89,4 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 var server = http.createServer(app);
-server.listen(3000);
+server.listen(process.env.PORT || 3000);
