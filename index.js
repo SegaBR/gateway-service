@@ -60,6 +60,8 @@ function verificaJWT(request, response, next){
     });
 }
 
+app.use(logger('dev'));
+
 app
     .route("/login")
     .post(login) 
@@ -82,10 +84,9 @@ app.all('/alunos/:id', verificaJWT, (req, res, next) => {
     alunosServiceProxy(req, res, next);
 })
 
-app.use(logger('dev'));
 app.use(helmet());
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.listen(process.env.PORT || 3000);
+var server = http.createServer(app);
+server.listen(process.env.PORT || 3000);
