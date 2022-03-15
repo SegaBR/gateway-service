@@ -16,8 +16,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors())
 
-const disciplinasServiceProxy = httpProxy('http://localhost:3002');
-const alunosServiceProxy = httpProxy('http://localhost:3003');
+const disciplinasServiceProxy = httpProxy('https://disciplinas-service.herokuapp.com/');
+const alunosServiceProxy = httpProxy('https://alunos-service.herokuapp.com/');
 
 const login = (request, response, next) => {
 
